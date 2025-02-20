@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreatedUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -36,7 +38,7 @@ class UserController extends Controller
     public function createdUser(CreatedUserRequest $request)
     {
 
-        User::create($request->all());
+        User::create($request->validated());
 
         return redirect()
             ->route('users.index')
@@ -61,11 +63,18 @@ class UserController extends Controller
     }
 
 
-    public function update(Request $request, string $id)
+    public function update(UpdateUserRequest $request, string $id)
     {
         if (!$user = User::find($id)) {
             return back()->with('message', 'Usuário não encontrado..');
         }
+
+        $data = $request->only('name', 'email');
+        if ($request->password) {
+            $data['password'] = bcrypt($request->password);
+        }
+        // dd($data);
+        $user->update($data);
 
         $user->update($request->only([
             'name',
@@ -75,5 +84,38 @@ class UserController extends Controller
         return redirect()
             ->route('users.index')
             ->with("success", "Usuário editado com sucesso!!");
+    }
+
+    public function show(string $id)
+    {
+        if (!$user = User::find($id)) {
+            return redirect()
+                ->route('users.index')
+                ->with('message', 'Usuário não encontrado!');
+        }
+
+        return view('admin.users.show', compact('user'));
+    }
+
+    public function destroy(string $id) {
+        if (!$user = User::find($id)) {
+            return redirect()
+                ->route('users.index')
+                ->with('message', 'Usuário não encontrado!');
+        }
+
+        if (Auth::user()->id === $user->id) {
+            return back()
+                ->with('message', 'Você não pode deletar o seu próprio usuário!');
+            
+        }
+        
+        // Esse método 'delete' vai retornar 'true' ou 'false' se o usuário foi deletado ou não
+        // E eu poderia mandar os campos a ser deletado dentro de um array como parâmetro do método 'delete'
+        $user->delete();
+
+        return redirect()
+            ->route('users.index')
+            ->with('success', 'Usuário deletado com sucesso!');
     }
 }

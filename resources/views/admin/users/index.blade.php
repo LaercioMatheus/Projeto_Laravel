@@ -9,10 +9,7 @@
     <!-- Não é uma boa forma colocar no 'sorce' do link o caminho direto pode ser que o caminho mude e ficará difícil alterar depois -->
     <a href="{{ route('users.create') }}">Novo Usuário</a>
 
-    <!-- Mostrando uma mensagem de sucesso quando o usuário for cadastrado com sucesso -->
-    @if(session()->has('success'))
-        {{ session('success') }}
-    @endif
+    <x-alert/>
 
     <br>
     <table>
@@ -36,6 +33,7 @@
                 <td>
                     <!-- Mandando o usuário para a rota 'edit' mandando junto o id do usuário -->
                     <a href="{{ route('users.edit', $user->id) }}">Edit</a>
+                    <a href="{{ route('users.show', $user->id) }}">Details</a>
                 </td>
             </tr>
 
