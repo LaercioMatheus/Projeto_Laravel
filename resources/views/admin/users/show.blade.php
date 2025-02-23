@@ -8,12 +8,11 @@
     <h1>Detalhes do Usuário</h1>
 
     <ul>
-        <li>-->Nome: {{ $user->name }}</li>
-        <li>-->E-mail: {{ $user->email }}</li>
+        <li>Nome: {{ $user->name }}</li>
+        <li>E-mail: {{ $user->email }}</li>
     </ul>
     <br>
 
-    
     <!-- @can('is-owner', $user)
         <p>Pode deletar esse registro...</p>
     @endcan -->
