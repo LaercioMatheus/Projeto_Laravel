@@ -17,11 +17,13 @@ class CheckIfsAdmins
     public function handle(Request $request, Closure $next): Response
     {
 
-        // Tenho que arrumar esse erro
-        // if (Auth::user()->isAdm()) {
-        //     return next($request);
-        // }
+        // Verifica se o usuário é um adm
+        if (Auth::user()->isAdm()) {
+            // Se for um adm, ele vai continuar a requisição
+            return next($request);
+        }
 
+        // Se não for um adm, ele vai redirecionar para a rota home (dashboard)
         return redirect()->route('home');
     }
 }

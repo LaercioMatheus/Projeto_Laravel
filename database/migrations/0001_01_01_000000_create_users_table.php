@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->softDeletes();
+            $table->softDeletes(); // Adiciona a coluna deleted_at no bando de dados para exclusão lógica, não 'deletando' o registro do banco de dados (tem o dia tal e data tal... que ele foi deletado)
             $table->timestamps();
         });
 

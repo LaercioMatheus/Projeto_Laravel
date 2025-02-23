@@ -4,7 +4,11 @@
 
     @section('content')
     <!-- Aqui nesse arquivo só mostra dados não preciso implementar nenhuma logica -->
-    <h1>Usuários</h1>
+     
+    @include('admin.users.partials.breacrumb')
+    <div class="py-6">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200">Usuários</h2>
+    </div>
 
     <!-- Não é uma boa forma colocar no 'sorce' do link o caminho direto pode ser que o caminho mude e ficará difícil alterar depois -->
     <a href="{{ route('users.create') }}">Novo Usuário</a>
@@ -12,8 +16,9 @@
     <x-alert/>
 
     <br>
-    <table>
-        <thead>
+    <table class="table-fixed w-full">
+        <legend>Os dados dos usuários do banco de dados</legend>
+        <thead> <!-- class="text-gray-500 dark:text-gray-100" -->
             <tr>
                 <th>Nome</th>
                 <th>E-mail</th>
@@ -48,6 +53,3 @@
     <p class="paginate">{{ $users->links() }}</p>
 
     @endsection
-    </body>
-
-    </html>

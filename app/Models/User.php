@@ -49,6 +49,7 @@ class User extends Authenticatable
 
     public function isAdm(): bool
     {
+        // Verifica se o usuáro está logado e é um administrador
         return in_array($this->email, config('custom.admins'));
     }
 }

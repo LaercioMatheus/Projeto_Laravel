@@ -9,6 +9,7 @@ use App\Models\User;
 use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -97,19 +98,30 @@ class UserController extends Controller
         return view('admin.users.show', compact('user'));
     }
 
-    public function destroy(string $id) {
+    public function destroy(string $id)
+    {
+
+        ## Essa é uma forma de verificar se o usuário é um administrador
+        // Esse parâmetro 'denise' verifica se o usuário " NÃO É (TEM) " a condição dentro do if
+        // Ao contrário do 'allows' que verifica se o usuário " É (TEM) " a condição dentro do if
+        // if (Gate::denies('is-admin')) {
+        //     return back()
+        //         ->with('message', 'Você não é um administrador!');
+        // }
+
+
         if (!$user = User::find($id)) {
             return redirect()
                 ->route('users.index')
                 ->with('message', 'Usuário não encontrado!');
         }
 
+        // Isso é para o usuário não deletar o próprio acesso dele
         if (Auth::user()->id === $user->id) {
             return back()
                 ->with('message', 'Você não pode deletar o seu próprio usuário!');
-            
         }
-        
+
         // Esse método 'delete' vai retornar 'true' ou 'false' se o usuário foi deletado ou não
         // E eu poderia mandar os campos a ser deletado dentro de um array como parâmetro do método 'delete'
         $user->delete();
