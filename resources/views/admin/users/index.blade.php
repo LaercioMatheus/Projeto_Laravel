@@ -15,7 +15,6 @@
         <caption class="caption-top">Os dados dos usuários do banco de dados</caption>
         <a class="btn btn-primary" href="{{ route('users.create') }}" class="">Novo Usuário</a>
     </div>
-
     
     <div class="py-6 align-items-lg-center align-items-xxl-baseline">
         <table class="table-fixed w-100">
