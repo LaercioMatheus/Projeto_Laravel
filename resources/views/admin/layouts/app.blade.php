@@ -1,3 +1,6 @@
+<!-- ESSE FOI O APP QUE EU CRIEI -->
+
+
 <!DOCTYPE html>
 <html lang="{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -5,19 +8,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link href="/resources/css/app.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="{{ asset('resources/css/app.css') }}">
     
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('resources/css/app.css') }}">
+
     <title>@yield('title') - PHP and Laravel</title>
 </head>
 
-<body class="">
+<body class="dark-mode">
+
+
     @include('layouts.navigation')
 
-    <header class="bg-white dark:bg-gray-800 shadow">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+    <header class="header">
+        <div class="title">
+            <h2 class="">
                 Usuários
             </h2>
         </div>

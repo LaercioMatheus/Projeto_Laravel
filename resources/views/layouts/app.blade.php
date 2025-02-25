@@ -21,8 +21,8 @@
 
             <!-- Page Heading -->
             @isset($header)
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <header class="header">
+                    <div class="container m-1">
                         {{ $header }}
                     </div>
                 </header>
@@ -35,5 +35,6 @@
         </div>
 
         <script type="module" src="{{ asset('resources/js/app.js') }}"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </body>
 </html>
