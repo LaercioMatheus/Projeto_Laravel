@@ -1,30 +1,37 @@
     @extends('admin.layouts.app')
-
-    @section('title', 'Listagem de Usuários')
+    @section('title', 'List Users')
 
     @section('content')
     <!-- Aqui nesse arquivo só mostra dados não preciso implementar nenhuma logica -->
 
     @include('admin.users.partials.breacrumb')
 
+    use Illuminate\Pagination\Paginator;
+
+    public function boot()
+    {
+        Paginator::useBootstrap(); // Para usar Bootstrap
+    }
+
     <x-alert />
 
     <!-- Não é uma boa forma colocar no 'sorce' do link o caminho direto pode ser que o caminho mude e ficará difícil alterar depois -->
-    <div class="flex justify-between">
-        <caption class="caption-top">Os dados dos usuários do banco de dados</caption>
-        <a class="btn btn-primary" href="{{ route('users.create') }}" class="">Novo Usuário</a>
+    <div class="flex-row d-flex justify-content-between">
+        <legend class="caption-top">Os dados dos usuários do banco de dados</legend>
+        <a class="btn btn-outline-success" href="{{ route('users.create') }}" class="">New User</a>
     </div>
 
     <div class="py-6 align-items-lg-center align-items-xxl-baseline">
-        <table class="table-fixed w-100">
-            <thead> <!-- class="text-gray-500 dark:text-gray-100" -->
+
+        <table class="table table-fixed w-100">
+            <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Ações</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Ações</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="table-group-divider">
                 <!-- Lista todos os usuários no banco de dado -->
                 <!-- Isso abaixo é uma array que pega todos os dados do banco -->
                 <!-- Essa função é igual a 'if else' faz o loop normal, mas se não encontrar informações no $users vai cair no 'empty' -->
@@ -35,8 +42,8 @@
                     <td>{{ $user->email }}</td>
                     <td>
                         <!-- Mandando o usuário para a rota 'edit' mandando junto o id do usuário -->
-                        <a href="{{ route('users.edit', $user->id) }}">Edit</a>
-                        <a href="{{ route('users.show', $user->id) }}">Details</a>
+                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-outline-warning">Edit</a>
+                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-outline-secondary">Details</a>
                     </td>
                 </tr>
                 @empty
@@ -48,10 +55,9 @@
         </table>
     </div>
 
-    <nav aria-label="pagination" class="pagination">
-            <li class="page-link">
-                {{ $users->links() }}
-            </li>
-    </nav>
-
+    <!-- <div class="custom-pagination">
+        <li>
+            <div class="active"><span>{{ $users->links() }}</span></div>
+        </li>
+    </div> -->
     @endsection

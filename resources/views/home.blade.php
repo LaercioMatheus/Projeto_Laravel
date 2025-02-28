@@ -1,10 +1,15 @@
-@extends('master')
+<x-app-layout>
+    <x-slot name="header">
+        <h5 class="text-black-50">
+            {{ __('Home') }}
+        </h5>
+    </x-slot>
 
-@section('content')
-    <div class="container">
-        <div class="content">
-            <div class="title">Laravel 11</div>
-            <div class="quote">Hello World!</div>
+        <div class="">
+            <div class="container">
+                <div class="text-success">
+                    {{ __("Welcome :)") }}
+                </div>
+            </div>
         </div>
-    </div>
-@endsection
+</x-app-layout>

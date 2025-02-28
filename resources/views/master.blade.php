@@ -11,6 +11,7 @@
     @yield('content')
 
     <div class="container">
+        <h1>Essa é a primeira tela do sistema</h1>
         <button type="button" class="btn btn-primary">enviar</button>
     </div>
 </body>

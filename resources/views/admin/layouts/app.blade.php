@@ -17,24 +17,23 @@
 </head>
 
 <body class="dark-mode">
-
-
     @include('layouts.navigation')
 
     <header class="header">
-        <div class="title">
-            <h2 class="">
-                Usuários
-            </h2>
+    <div class="">
+            <div class="container">
+                <div class="text-success">
+                    {{ __("Welcome :)") }}
+                </div>
+            </div>
         </div>
     </header>
 
     <main>
-        
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900 dark:text-gray-100">
+        <div class="container-md">
+            <div class="">
+                <div class="bg-white">
+                    <div class="">
                         @yield('content')
                     </div>
                 </div>
@@ -42,10 +41,11 @@
         </div>
     </main>
 
-    <!-- <footer>
-        footer do sistema 2
-    </footer> -->
+    <footer class="footer">
+        <p>Desenvolvedor - <a href="#"> Laércio Matheus </a></p>
+    </footer>
     <script type="module" src="{{ asset('resources/js/app.js') }}"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
 
 </html>
