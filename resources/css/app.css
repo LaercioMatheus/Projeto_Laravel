@@ -11,8 +11,16 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 } */
 
+@import 'bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 body {
-    background-color: rgb(6, 41, 71);
+    background-color: rgb(133, 189, 238);
     font-family: "Josefin Sans", sans-serif;
+}
+
+ol {
+    list-style: decimal;
+    margin: 0px;
+    padding: 5px;
 }

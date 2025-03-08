@@ -1,24 +1,29 @@
-@extends('layouts.app')
+@extends('main')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Listagem de usuários') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<h2>List Users</h2>
+
+@if (session()->has('message'))
+    {{ session()->get('message') }}
+
+@endif
+
+<hr>
+
+<a href="{{ route('users.create') }}" class="btn btn-outline-success">Create Users</a>
+
+
+<ol>
+    @foreach ($users as $user)
+
+    <li>{{ $user->name }} ==>
+        <a href="{{ route('users.show', ['user' => $user->id]) }}">Show</a> |
+        <a href="{{ route('users.edit', ['user' => $user->id]) }}">Edit</a>
+    </li>
+
+    @endforeach
+</ol>
+
 @endsection
-<!-- Esse pode ser o arquivo do sistema principal -->
