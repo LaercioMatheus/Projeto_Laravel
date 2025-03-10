@@ -1,25 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt-br>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Colocando o 'asset()' vai direto para a pasta public do projeto -->
+@extends('layouts.app')
     
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet"> -->
-    
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>Project Laravel CRUD</title>
-</head>
+@section('content')
 
-<body>
+<!-- Tenho que arrumar essa parte do projeto para aparecer os títulos corretos -->
+    <!-- <title>Project Laravel CRUD</title> -->
+    <title>{{ config('app.name', 'CRUD and Laravel') }}</title>
 
     <div class="container">
-        @yield('content')
+        <!-- Tenho que verificar como funciona esse elemento 'Yield' -->
+        @yield('content') <!-- Esse elemento é para o conteúdo dinâmico do projeto (template) -->
+
+        <h2>Home Page</h2>
     </div
 
-</body>
-
-</html>
+@endsection

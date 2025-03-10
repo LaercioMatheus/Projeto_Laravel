@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -29,10 +30,8 @@ class UserController extends Controller
     {
         // Aqui é a listagem dos usuários do banco de dados
         // Pegando todos os usuários, posso usar ( all() ou Get() )
-        $users = $this->user->all();
+        $users = $this->user->paginate(10);
         return view('users',['users' => $users]);
-
-
 
     }
 
@@ -94,7 +93,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateUserRequest $request, string $id)
     {
         // Aqui é a lógica de atualizar os dados do usuário
 
