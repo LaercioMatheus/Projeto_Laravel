@@ -14,6 +14,7 @@ Auth::routes();
 
 Route::middleware('auth')->group(function() {
 
+    // Para definir o nome da rota, pego o parametro da URL (users) mais o nome da view (action)
     Route::get('/', [MainController::class, 'index'])->name('main');
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/create', [UserController::class, 'create'])->name('users.create');

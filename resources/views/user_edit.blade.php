@@ -1,12 +1,13 @@
 @extends('main')
 
+@section('title', 'Edit User')
+
 @section('content')
 
 <h2>Edit User => '{{ $user->name }}' </h2>
 
 @if (session()->has('message'))
-    {{ session()->get('message') }}
-
+    <div class="alert alert-success">{{ session()->get('message') }}</div>
 @endif
 
 <hr>

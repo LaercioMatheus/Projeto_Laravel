@@ -1,12 +1,23 @@
 @extends('main')
 
+@section('title', 'Create User')
+
 @section('content')
 
 <h2>Create Users</h2>
 
 @if (session()->has('message'))
-    {{ session()->get('message') }}
+    <div class="alert alert-success">{{ session()->get('message') }}</div>
+@endif
 
+@if (session()->has('errors'))
+    <div>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li class="list-group-item list-group-item-danger"> {{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif
 
 <hr>
@@ -17,10 +28,10 @@
     @csrf
 
     <label for="name">Name</label>
-    <input type="text" name="name" id="name" placeholder="Your name...">
+    <input type="text" name="name" id="name" placeholder="Your name..." value="{{ old('name') }}">
 
     <label for="email">E-mail</label>
-    <input type="email" name="email" id="email" placeholder="Your e-mail...">
+    <input type="email" name="email" id="email" placeholder="Your e-mail..." value="{{ old('email') }}">
 
     <label for="password">Password</label>
     <input type="password" name="password" id="password" placeholder="Your password...">

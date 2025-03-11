@@ -1,5 +1,7 @@
 @extends('main')
 
+@section('title', 'Show User')
+
 @section('content')
 
 <h2>Show User -- '{{ $user->name }}'</h2>

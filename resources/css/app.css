@@ -24,3 +24,11 @@ ol {
     margin: 0px;
     padding: 5px;
 }
+
+.w-5 {
+    width: 40px;
+}
+
+p {
+    margin: 10px;
+}

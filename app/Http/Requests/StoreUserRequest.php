@@ -22,17 +22,23 @@ class StoreUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|min:3|max:255',
+            // Aqui vai ser onde fica tudo que eu quero validar do usuário
+            // Posso fazer dessa forma no NAME:
+            // Ou da forma do EMAIL:
+            'name' => 'required|string|min:3|max:100',
             'email' => [
                 'required',
                 'email',
                 'unique:users,email',
+                'min:3',
+                'max:100'
             ],
             'password' => [
                 'required',
                 'min:6',
                 'max:20',
             ]
+            
         ];
     }
 }
