@@ -4,28 +4,34 @@
 
 @section('content')
 
-<h2>Edit User => '{{ $user->name }}' </h2>
+<div class="container">
+    <h2> Edit User - <strong>{{ $user->name }}</strong> </h2>
 
-<!-- Mostrando os alertas por meio de components -->
-<x-alert />
+    <!-- Mostrando os alertas por meio de components -->
+    <x-alert />
 
-<hr>
+    <hr>
 
-<form action="{{ route('users.update', ['user' => $user->id]) }}" method="post">
-    @csrf
-    <input type="hidden" name="_method" value="PATCH">
+    <form action="{{ route('users.update', ['user' => $user->id]) }}" method="post" class="row g-3">
+        @csrf
+        <input type="hidden" name="_method" value="PATCH">
 
-    <label for="name"> Name
-        <input type="text" name="name" id="name" value="{{ $user->name }}">
-    </label>
+        <div class="col-md-6">
+            <label for="name" class="form-label"> Name </label>
+            <input type="text" name="name" id="name" class="form-control" value="{{ $user->name }}">
+        </div>
 
-    <label for="email"> E-mail
-        <input type="email" name="email" id="email" value="{{ $user->email }}">
-    </label>
+        <div class="col-md-6">
+            <label for="email" class="form-label"> E-mail </label>
+            <input type="email" name="email" id="email" class="form-control" value="{{ $user->email }}">
+        </div>
 
-    <button type="submit" class="btn btn-outline-primary">Enviar</button>
-</form>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-success">Enviar</button>
+        </div>
+    </form>
 
-<a href="{{ route('users.index') }}">Voltar</a>
+    <a href="{{ route('users.index') }}" class="btn btn-outline-secondary mt-3">Voltar</a>
+</div>
 
 @endsection

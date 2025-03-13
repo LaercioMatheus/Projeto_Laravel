@@ -8,7 +8,7 @@
 
 @if (session()->has('errors'))
     <div>
-        <ul>
+        <ul class="list-group list-group-flush">
             @foreach ($errors->all() as $error)
                 <li class="list-group-item list-group-item-danger"> {{ $error }}</li>
             @endforeach
