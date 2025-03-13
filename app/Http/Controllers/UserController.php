@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
-// use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -70,36 +70,53 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        // Aqui é onde vai ser detalhado os dados dos ususários
+        // Aqui é onde vai ser detalhado os dados dos usuários
         // var_dump($user);
+
+        // Estrutura nova para mostrar a mensagem de usuário não encontrado
         return view('user_show', ['user' => $user]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit(Request $request, string $id)
     {
         // Aqui é a lógica de editar os dados dos usuários
         //var_dump($user);
         // dd($user);
 
-        if (!$users = $this->user->where('user', $user)) {
+        // ESTRUTURA ANTIGA
+        //'Passando os parâmetros dentro da classe'
+        /*if (!$users = $this->user->where('user', $user)) {
             return redirect()->route('users.index')->with('alert', 'Usuário não encontrado');
         }
+        return view('user_edit', ['user' => $user]);
+        */
 
+        // Estrutura nova para mostrar a mensagem de usuário não encontrado
+        if (!$user = User::where('id', $id)->first()) {
+            return redirect()->route('users.index')->with('alert', 'User not found');
+        }
+
+        // Esse retorno vai mandar as informações do usuário para a página de edição permitindo pegar as informações de dentro da variável '$user'
         return view('user_edit', ['user' => $user]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateUserRequest $request, string $id)
     {
         // Aqui é a lógica de atualizar os dados do usuário
 
         // Aqui está pegando todas os dados com excessão o TOKEN (para velidação) e o METODO DE ENVIO (verbo)
         /* var_dump(request()->except(['_token', '_method']));*/
+
+        // Estrutura para mostrar a mensagem de usuário não encontrado
+        if (!$user = User::where('id', $id)->first()) {
+            return redirect()->route('users.index')->with('alert', 'User not found');
+        }
 
         // Atualizando os dados
         $updated = $this->user->where('id', $id)->update($request->except(['_token', '_method']));

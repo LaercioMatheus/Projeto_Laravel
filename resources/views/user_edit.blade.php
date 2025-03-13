@@ -6,9 +6,8 @@
 
 <h2>Edit User => '{{ $user->name }}' </h2>
 
-@if (session()->has('message'))
-    <div class="alert alert-success">{{ session()->get('message') }}</div>
-@endif
+<!-- Mostrando os alertas por meio de components -->
+<x-alert />
 
 <hr>
 

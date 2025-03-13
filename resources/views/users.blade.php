@@ -9,9 +9,9 @@
     <h2>List Users</h2>
 
 
-    @if (session()->has('message'))
-        <div class="alert alert-success">{{ session()->get('message') }}</div>
-    @endif
+    <!-- Mostrando os alertas por meio de components-->
+    <!-- Posso usar o include passando o nome do arquivo-->
+    <x-alert />
 
     <hr>
 

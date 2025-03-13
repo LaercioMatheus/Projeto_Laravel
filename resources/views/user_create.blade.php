@@ -6,19 +6,8 @@
 
 <h2>Create Users</h2>
 
-@if (session()->has('message'))
-    <div class="alert alert-success">{{ session()->get('message') }}</div>
-@endif
-
-@if (session()->has('errors'))
-    <div>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li class="list-group-item list-group-item-danger"> {{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+<!-- Mostrando os alertas por meio de components -->
+<x-alert />
 
 <hr>
 
