@@ -31,16 +31,13 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                        <!-- AQUI VOU TER QUE ALTERAR ESSAS ROTAS PARA O TIPO CORRETO DOS LINKS -->
+                    <ul class="navbar-nav me-auto">                        
                         <li>
                             <a class="nav-link" href="{{ route('main') }}">{{ __('Home') }}</a>
                         </li>
                         <li>
                             <a class="nav-link" href="{{ route('users.index') }}">{{ __('Users') }}</a>
                         </li>
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->

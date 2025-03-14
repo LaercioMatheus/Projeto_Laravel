@@ -15,21 +15,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 body {
-    background-color: rgb(133, 189, 238);
-    /* background-color: #116466; */
+    /* background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%); */
+    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
     font-family: "Josefin Sans", sans-serif;
 }
 
-ol {
-    list-style: decimal;
-    margin: 0px;
-    padding: 5px;
-}
-
-.w-5 {
-    width: 40px;
+.navbar {
+    padding: 10px;
+    border-radius: 10px;
 }
 
 p {
     margin: 10px;
+}
+
+div.hidden div {
+    display: none;
+}
+
+span.relative, a.relative {
+    color: rgb(70, 70, 70);
+    display: inline-flex;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.relative:hover {
+    color: #0442eebb;
 }

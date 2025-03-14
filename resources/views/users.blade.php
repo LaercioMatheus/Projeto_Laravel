@@ -17,8 +17,8 @@
     <a href="{{ route('users.create') }}" class="btn btn-outline-success m-3">Create Users</a>
 
     <div class="container_table">
-        <table class="table table-dark table-hover table-responsive">
-            <thead>
+        <table class="table table-hover table-responsive">
+            <thead class="col text-center justify-center">
                 <th>Name</th>
                 <!-- <th>E-mail</th> -->
                 <th>Action</th>
@@ -29,7 +29,7 @@
                 <!-- Name -->
                 <td>{{ $user->name }} </td>
                 <!-- Actions -->
-                <td>
+                <td class="col text-center">
                     <div class="div_button d-inline p-2">
                         <a href="{{ route('users.show', ['user' => $user->id]) }}" class="btn btn-dark">Show</a>
                         <a href="{{ route('users.edit', ['user' => $user->id]) }}" class="btn btn-warning">Edit</a>
