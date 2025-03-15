@@ -17,6 +17,7 @@
 body {
     /* background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%); */
     background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+    background-repeat: no-repeat;
     font-family: "Josefin Sans", sans-serif;
 }
 
@@ -25,21 +26,133 @@ body {
     border-radius: 10px;
 }
 
-p {
-    margin: 10px;
+.container {
+    background-color: aliceblue;
+    border-radius: 2px;
 }
 
-div.hidden div {
-    display: none;
-}
-
-span.relative, a.relative {
-    color: rgb(70, 70, 70);
-    display: inline-flex;
-    border-radius: 10px;
+/* Button for create new user */
+.btn_button_shadow_border--black {
+    min-width: 115px;
+    height: 45px;
+    color: #fff;
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
     text-decoration: none;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5), 7px 7px 20px 0px rgba(0, 0, 0, .1), 4px 4px 5px 0px rgba(0, 0, 0, .1);
+    /* background: #212529; */
+    background: #198754;
 }
 
-.relative:hover {
-    color: #0442eebb;
+.btn_button_shadow_border--black:hover {
+    background-color: #157347;
 }
+
+.btn_button_shadow_border--black:active {
+    top: 2px;
+}
+
+
+/* Button for paginate the users */
+.btn_button_arrow--grey {
+    min-width: 115px;
+    height: 45px;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    outline: none;
+    overflow: hidden;
+    border-radius: 5px;
+    border: none;
+    background-color: #6c757d
+}
+
+
+/* Button Before */
+.btn_button_arrow--grey.before:before {
+    content: "\00AB";
+    position: absolute;
+    opacity: 0;
+    font-size: 20px;
+    line-height: 45px;
+    top: 0;
+    left: -20px;
+    transition: 0.4s;
+}
+
+.btn_button_arrow--grey.before:hover {
+    border-radius: 5px;
+    padding-right: 10px;
+    padding-left: 40px;
+}
+
+.btn_button_arrow--grey.before:hover:before {
+    opacity: 1;
+    left: 10px;
+}
+
+
+/* Botão Next */
+.btn_button_arrow--grey.after:after {
+    content: "\00BB";
+    position: absolute;
+    opacity: 0;
+    font-size: 20px;
+    line-height: 45px;
+    top: 0;
+    right: -20px;
+    transition: 0.4s;
+}
+
+.btn_button_arrow--grey.after:hover {
+    border-radius: 5px;
+    padding-right: 40px;
+    padding-left: 10px;
+}
+
+
+.btn_button_arrow--grey.after:hover:after {
+    opacity: 1;
+    right: 10px;
+}
+
+
+/* Styles button forms */
+
+.css-button-3d--green {
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #80ed99;
+    box-shadow: 0 5px #57cc99;
+  }
+  .css-button-3d--green:hover {
+    box-shadow: 0 3px #57cc99;
+    top: 1px;
+  }
+  .css-button-3d--green:active {
+    box-shadow: 0 0 #57cc99;
+    top: 5px;
+  }

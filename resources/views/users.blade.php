@@ -4,17 +4,17 @@
 
 @section('content')
 
-<div class="container">
+<div class="container p-md-5">
 
-    <h2 class="title">List Users</h2>
+    <div class="d-flex justify-content-between">
+        <h2 class="title">List Users</h2>
+        <a href="{{ route('users.create') }}" class="btn_button_shadow_border--black mt-3">New Users</a>
+    </div>
+    <hr class="border-group-divider border-2 opacity-75">
 
     <!-- Mostrando os alertas por meio de components-->
     <!-- Posso usar o include passando o nome do arquivo-->
     <x-alert />
-
-    <hr>
-
-    <a href="{{ route('users.create') }}" class="btn btn-outline-success m-3">Create Users</a>
 
     <div class="container_table">
         <table class="table table-hover table-responsive">
@@ -22,7 +22,6 @@
                 <th>Name</th>
                 <!-- <th>E-mail</th> -->
                 <th>Action</th>
-                <tr class="table-group-divider">
             </thead>
             @forelse ($users as $user)
             <tbody>
@@ -45,11 +44,7 @@
     </div>
 
     <div class="pagination">
-        <nav aria-label="navigation-page">
-            <ul class="pagination">
-                <li class="page-item">{{ $users->links() }}</li>
-            </ul>
-        </nav>
+        {{ $users->links() }}
     </div>
 </div>
 
