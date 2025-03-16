@@ -9,11 +9,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title') - CRUD with Laravel</title>
-    
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -31,7 +31,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">                        
+                    <ul class="navbar-nav me-auto">
                         <li>
                             <a class="nav-link" href="{{ route('main') }}">{{ __('Home') }}</a>
                         </li>
@@ -96,7 +96,9 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container p-md-5">
+                @yield('content')
+            </div>
         </main>
     </div>
 </body>

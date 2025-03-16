@@ -4,7 +4,6 @@
 
 @section('content')
 
-<div class="container d-block">
     <h2>Show User - <strong>{{ $user->name }}</strong></h2>
 
     <hr>
@@ -15,20 +14,19 @@
     
         <div class="col-md-6">
             <label for="name" class="form-label"> Name </label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}">
+            <input type="text" class="form-control disabled" id="name" name="name" value="{{ $user->name }}" disabled readonly>
         </div>
     
         <div class="col-md-6">
             <label for="email" class="form-label"> E-mail </label>
-            <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
+            <input type="email" class="form-control disabled" id="email" name="email" value="{{ $user->email }}" disabled readonly>
         </div>
     
         <div class="col-md-12">
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="submit" class="btn btn-danger m-2">Delete</button>
+            <a href="{{ route('users.index') }}" class="btn btn-outline-secondary m-1">Voltar</a>
         </div>
     </form>
     
-    <a href="{{ route('users.index') }}" class="btn btn-outline-secondary mt-2">Voltar</a>
-</div>
 
 @endsection

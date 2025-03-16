@@ -4,8 +4,6 @@
 
 @section('content')
 
-<div class="container p-md-5">
-
     <div class="d-flex justify-content-between">
         <h2 class="title">List Users</h2>
         <a href="{{ route('users.create') }}" class="btn_button_shadow_border--black mt-3">New Users</a>
@@ -29,9 +27,9 @@
                 <td>{{ $user->name }} </td>
                 <!-- Actions -->
                 <td class="col text-center">
-                    <div class="div_button d-inline p-2">
-                        <a href="{{ route('users.show', ['user' => $user->id]) }}" class="btn btn-dark">Show</a>
-                        <a href="{{ route('users.edit', ['user' => $user->id]) }}" class="btn btn-warning">Edit</a>
+                    <div class="btn_group gap-3">
+                        <a href="{{ route('users.show', ['user' => $user->id]) }}" class="css_button_3d--blue">Show</a>
+                        <a href="{{ route('users.edit', ['user' => $user->id]) }}" class="css_button_3d--yellow">Edit</a>
                     </div>
                 </td>
                 @empty
@@ -46,6 +44,5 @@
     <div class="pagination">
         {{ $users->links() }}
     </div>
-</div>
 
 @endsection
